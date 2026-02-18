@@ -306,5 +306,21 @@
 
   </div>
 
+  <!-- Read the invitee's name from Calendly URL parameters and personalise the heading -->
+  <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var fullName = params.get('invitee_full_name');
+      if (fullName) {
+        // Use just the first name for a friendly feel
+        var firstName = fullName.split(' ')[0];
+        var heading = document.querySelector('.main-heading');
+        if (heading && firstName) {
+          heading.textContent = "You're Booked In, " + firstName;
+        }
+      }
+    })();
+  </script>
+
 </body>
 </html>
